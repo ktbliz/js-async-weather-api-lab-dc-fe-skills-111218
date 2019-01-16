@@ -1,11 +1,17 @@
-const API_KEY = "YOUR API KEY"
+const API_KEY = "9cf3c910c321f7d61398645708287a77"
 
 function handleFormSubmit(event) {
   //handle submit event
+  
+  document.querySelector("input[type=text]").addEventListener("keydown", function(e) {console.log(e.which)})
 }
 
 function fetchCurrentWeather(city) {
-  //fetch current weather based on city
+  
+  fetch("https://api.openweathermap.org/data/2.5/weather?q=")
+  .then(response => response.json())
+  .then(json => console.log(json));
+  
 }
 
 function displayCurrentWeather(json) {
@@ -14,7 +20,10 @@ function displayCurrentWeather(json) {
 
 
 function fetchFiveDayForecast(city) {
-  //fetch five day forecast data based on city
+  fetch("https://api.openweathermap.org/data/2.5/forecast?q=")
+  .then(response => response.json())
+  .then(json => console.log(json));
+ 
 }
 
 function displayFiveDayForecast(json) {
@@ -26,5 +35,5 @@ function createChart(json) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  //add event listener here for form submission
+  document.querySelector("input[type=submit]").addEventListener("click", function(e) {alert("Hi!")})
 })
